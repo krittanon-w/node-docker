@@ -2,7 +2,7 @@
 
 
 # init
-NAME="db-dis-service"
+NAME="node-docker"
 
 
 # main
@@ -16,4 +16,4 @@ echo "build $NAME in $ENV mode"
 
 docker rm -f $NAME
 docker build -t $NAME .
-docker run -d --name "$NAME" -e NODE_ENV=$ENV $NAME:latest
+docker run -d --name "$NAME" -p 3000:3000 -e NODE_ENV=$ENV $NAME:latest
