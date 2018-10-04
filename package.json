@@ -1,0 +1,29 @@
+{
+  "name": "node-docker",
+  "version": "1.0.0",
+  "description": "node-docker",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "dev": "npm run start:dev",
+    "prod": "npm run start:prod",
+    "start:dev": "cross-env NODE_ENV=development nodemon --exec npm run babel-node -- ./src/index.js",
+    "start:prod": "cross-env NODE_ENV=production npm run build && NODE_ENV=production node ./dist/index.js",
+    "babel-node": "babel-node",
+    "build": "babel src -d dist",
+    "test": "NODE_ENV=development jest --detectOpenHandles --config=jest.config.json --watch --runInBand"
+  },
+  "author": "Krittanon.w <krittanon.w@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.14.11"
+  },
+  "dependencies": {
+    "cross-env": "^5.1.5",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "jest": "^23.5.0"
+  }
+}
