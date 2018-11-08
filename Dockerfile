@@ -12,4 +12,4 @@ RUN npm install && npm cache clean --force
 
 RUN chmod 777 start-script.sh
 
-CMD ["./start-script.sh"]s
+CMD ["./start-script.sh"]
